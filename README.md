@@ -75,12 +75,14 @@ pip install -e ".[dev]"
 
 ## Example usage (input → output)
 
-**Same frame before and after** (`open-redact`, bundled YuNet + LPD-YuNet, `FACE_BLUR_DETECTOR=max` on a Times Square crowd still from [`datasets/privacy_redaction/nyc_times_square_45s`](datasets/privacy_redaction/nyc_times_square_45s/)):
+**Same Times Square crowd frame** from [`datasets/privacy_redaction/nyc_times_square_45s`](datasets/privacy_redaction/nyc_times_square_45s/) — left is a **public README preview only** (not your real pipeline input); right is **`open-redact` output** on the full-resolution source (`FACE_BLUR_DETECTOR=max`, bundled YuNet + LPD-YuNet).
 
-| Input frame | After redaction |
+| Scene preview (GitHub) | `open-redact` output |
 |:--:|:--:|
-| ![Input frame — faces visible](samples/readme-demo/frame_input.jpg) | ![Redacted frame — opaque face boxes](samples/readme-demo/frame_output.jpg) |
-| Original pixel | Blackout rectangles on detected faces |
+| ![README preview — two prominent faces pre-redacted for publication](samples/readme-demo/frame_input.jpg) | ![Automated redaction on the original frame](samples/readme-demo/frame_output.jpg) |
+| Two identifiable faces **manually blacked out** so we do not publish them; smaller/distant faces may still appear | Opaque boxes on **all** faces the engine detects |
+
+Your local runs always read **your unmodified files** — we never upload source video to GitHub. The left image is sanitized for this repo only.
 
 Command that produced the right-hand image:
 
