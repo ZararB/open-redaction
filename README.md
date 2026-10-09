@@ -75,6 +75,20 @@ pip install -e ".[dev]"
 
 ## Example usage (input → output)
 
+**Same frame before and after** (`open-redact`, bundled YuNet + LPD-YuNet, `FACE_BLUR_DETECTOR=max` on a Times Square crowd still from [`datasets/privacy_redaction/nyc_times_square_45s`](datasets/privacy_redaction/nyc_times_square_45s/)):
+
+| Input frame | After redaction |
+|:--:|:--:|
+| ![Input frame — faces visible](samples/readme-demo/frame_input.jpg) | ![Redacted frame — opaque face boxes](samples/readme-demo/frame_output.jpg) |
+| Original pixel | Blackout rectangles on detected faces |
+
+Command that produced the right-hand image:
+
+```bash
+export FACE_BLUR_DETECTOR=max FACE_BLUR_STYLE=blackout FACE_BLUR_BYTE_TRACK=1
+open-redact my_clip.mp4 -o my_clip.redacted.mp4
+```
+
 ### 1. Local file (default: faces + plates)
 
 | | Path |
