@@ -64,34 +64,122 @@ sudo apt-get update && sudo apt-get install -y ffmpeg python3-venv python3-pip
 ## Quick start
 
 ```bash
+git clone https://github.com/ZararB/open-redaction.git
 cd open-redaction
 python3 -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"
 ```
 
-Redact faces and plates (default):
+---
+
+## Example usage (input → output)
+
+### 1. Local file (default: faces + plates)
+
+| | Path |
+|---|------|
+| **Input** | `my_clip.mp4` (any local MP4/WebM/MOV) |
+| **Output** | `my_clip.redacted.mp4` (same resolution; audio copied when present) |
 
 ```bash
-open-redact input.mp4 -o output.redacted.mp4 --json
+open-redact my_clip.mp4 -o my_clip.redacted.mp4
 ```
 
-Faces only:
+Without `--json`, the CLI prints a one-line summary on stdout and a review reminder on stderr:
 
-```bash
-open-redact input.mp4 -o out.mp4 --no-plates
+```text
+Wrote my_clip.redacted.mp4 targets=['face', 'license-plate']
+Review the output before upload; detector completion does not prove every face or plate was found.
 ```
 
-Plates only:
+With `--json`, stdout is a machine-readable report (model digests, frame counts, targets):
 
 ```bash
-open-redact input.mp4 -o out.mp4 --no-faces
+open-redact my_clip.mp4 -o my_clip.redacted.mp4 --json
 ```
 
-Equivalent module invocation:
+```json
+{
+  "input_path": "my_clip.mp4",
+  "output_path": "my_clip.redacted.mp4",
+  "total_faces_blurred": 42,
+  "total_plates_redacted": 7,
+  "total_boxes_redacted": 49,
+  "frames_processed": 900,
+  "success": true,
+  "detector": "YuNetFaceDetector(face_detection_yunet_2023mar.onnx)",
+  "plate_detector": "OpenCVZooLPD-YuNet-2023mar",
+  "model_artifacts": [
+    {
+      "target": "face",
+      "artifact_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+    },
+    {
+      "target": "license_plate",
+      "artifact_sha256": "6d4978a7b6d25514d5e24811b82bfb511d166bdd8ca3b03aa63c1623d4d039c7"
+    }
+  ],
+  "review_required": true,
+  "targets": ["face", "license-plate"]
+}
+```
+
+Counts vary by clip; `review_required` is always `true` — treat redaction as assistive, not a compliance guarantee.
+
+### 2. Public sample clip (Wikimedia)
+
+Catalog: [`samples/redaction_test_samples.json`](samples/redaction_test_samples.json). Example — Oslo tram (faces + street):
 
 ```bash
-python -m agents.ml.face_blur input.mp4 -o out.mp4 --json
+mkdir -p samples/cache
+curl -L -o samples/cache/oslo_tram_street.webm \
+  "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/60/Tram_in_Oslo_20250107_142906.webm/Tram_in_Oslo_20250107_142906.webm.480p.vp9.webm"
+
+open-redact samples/cache/oslo_tram_street.webm \
+  -o samples/cache/oslo_tram_street.redacted.webm \
+  --json
+```
+
+| Sample ID | Good for | Suggested output |
+|-----------|----------|------------------|
+| `oslo_tram_street` | Faces, street | `*.redacted.webm` |
+| `prague_bus_roundabout` | License plates | `*.redacted.webm` |
+| `boston_green_line` | Faces + transit | `*.redacted.webm` |
+
+Or use the helper script with a sample id:
+
+```bash
+python agents/ml/face_blur/scripts/build_eval_frames.py \
+  --sample-id oslo_tram_street \
+  --max-frames 15 \
+  --out /tmp/oslo_eval
+# → /tmp/oslo_eval/_cache/oslo_tram_street.webm (download) + extracted PNG frames
+```
+
+### 3. Target toggles
+
+```bash
+open-redact my_clip.mp4 -o faces_only.mp4 --no-plates
+open-redact dashcam.mp4 -o plates_only.mp4 --no-faces
+```
+
+### 4. Python API (same engine)
+
+```python
+from agents.ml.face_blur.unified_privacy_redaction import UnifiedPrivacyRedactionService
+
+result = UnifiedPrivacyRedactionService.from_env().redact_video_fast(
+    "my_clip.mp4",
+    "my_clip.redacted.mp4",
+)
+print(result["output_path"], result["targets"])
+```
+
+Module equivalent to the CLI:
+
+```bash
+python -m agents.ml.face_blur my_clip.mp4 -o my_clip.redacted.mp4 --json
 ```
 
 **Always review output before publishing.** High recall is not guaranteed on all regions, lighting, or plate styles.
@@ -156,12 +244,14 @@ Non-zero exit if configured precision/recall thresholds fail.
 
 ## Public test samples
 
-Curated URLs (Wikimedia + optional YouTube) live in [`samples/redaction_test_samples.json`](samples/redaction_test_samples.json). YouTube entries need optional deps:
+Curated URLs (Wikimedia + optional YouTube) live in [`samples/redaction_test_samples.json`](samples/redaction_test_samples.json). See **Example usage** above for a full download → redact flow.
+
+YouTube entries need optional deps:
 
 ```bash
 pip install -e ".[youtube]"
-python -m yt_dlp -f "bv*[height<=720]+ba/b" -o clip.mp4 "<youtube-url>"
-open-redact clip.mp4 -o clip.redacted.mp4 --json
+python -m yt_dlp -f "bv*[height<=720]+ba/b" -o samples/cache/nyc_walk.mp4 "<youtube-url>"
+open-redact samples/cache/nyc_walk.mp4 -o samples/cache/nyc_walk.redacted.mp4 --json
 ```
 
 ---
