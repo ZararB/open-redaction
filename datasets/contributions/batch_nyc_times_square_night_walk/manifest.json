@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "batch_id": "batch_nyc_times_square_night_walk",
+  "source": {
+    "id": "nyc_times_square_night_walk",
+    "title": "Times Square NYC at Night",
+    "url": "https://www.youtube.com/watch?v=qGh2uK77nbU",
+    "license": "YouTube \u2014 use only with yt-dlp; do not redistribute raw video in git",
+    "tags": [
+      "faces",
+      "crowd",
+      "night",
+      "youtube"
+    ]
+  },
+  "frames": {
+    "count": 120
+  },
+  "labeling": {
+    "status": "open",
+    "min_reviewers": 1
+  },
+  "created_at": "2026-10-03T02:53:25.791077+00:00"
+}

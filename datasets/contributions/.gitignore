@@ -1,0 +1,6 @@
+.cache/
+*.mp4
+*.webm
+**/frames/
+labels_pseudo.jsonl
+*_contribution.tar.gz

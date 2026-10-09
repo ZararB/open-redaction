@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "batch_id": "batch_oslo_tram_street",
+  "source": {
+    "id": "oslo_tram_street",
+    "title": "Oslo tram (street)",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/60/Tram_in_Oslo_20250107_142906.webm/Tram_in_Oslo_20250107_142906.webm.480p.vp9.webm",
+    "license": "Wikimedia Commons \u2014 check file page for license",
+    "tags": [
+      "faces",
+      "street"
+    ]
+  },
+  "frames": {
+    "count": 52
+  },
+  "labeling": {
+    "status": "open",
+    "min_reviewers": 1
+  },
+  "created_at": "2026-10-03T02:47:33.395416+00:00"
+}

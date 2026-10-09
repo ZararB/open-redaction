@@ -1,0 +1,5 @@
+# Optional dependencies for face blur when FACE_BLUR_BACKEND=onnx.
+# Install in backend image or worker image alongside opencv-python-headless:
+#   pip install -r agents/ml/face_blur/requirements-onnx.txt
+onnxruntime>=1.17.0
+onnx>=1.15.0

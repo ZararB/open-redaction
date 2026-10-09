@@ -1,0 +1,52 @@
+{
+  "samples": [
+    {
+      "id": "oslo_tram_street",
+      "title": "Oslo tram (street)",
+      "description": "26s street scene — pedestrians and faces near tram stop (Wikimedia Commons).",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/60/Tram_in_Oslo_20250107_142906.webm/Tram_in_Oslo_20250107_142906.webm.480p.vp9.webm",
+      "duration_seconds": 26,
+      "tags": ["faces", "street", "oslo"]
+    },
+    {
+      "id": "vienna_speech_crowd",
+      "title": "Vienna speech crowd",
+      "description": "30s outdoor crowd — clear faces at a public demonstration (Wikimedia Commons).",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6f/Image-Demonstration_data_retention_at_BMVIT_speech_Hufsky_3_2007-06-07.ogv/Image-Demonstration_data_retention_at_BMVIT_speech_Hufsky_3_2007-06-07.ogv.480p.vp9.webm",
+      "duration_seconds": 30,
+      "tags": ["faces", "crowd"]
+    },
+    {
+      "id": "prague_bus_roundabout",
+      "title": "Prague bus (plates)",
+      "description": "17s roundabout — buses and cars with readable license plates (Wikimedia Commons).",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/87/Mercedes-Benz_CapaCity_na_lince_119%2C_kruhov%C3%BD_objezd.webm/Mercedes-Benz_CapaCity_na_lince_119%2C_kruhov%C3%BD_objezd.webm.480p.vp9.webm",
+      "duration_seconds": 17,
+      "tags": ["license_plates", "vehicles", "street"]
+    },
+    {
+      "id": "go_train_crossing",
+      "title": "GO Train crossing (plates)",
+      "description": "20s level crossing — train and roadside vehicles with plates (Wikimedia Commons).",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/29/GO_Train_at_level_crossing.webm/GO_Train_at_level_crossing.webm.480p.vp9.webm",
+      "duration_seconds": 20,
+      "tags": ["license_plates", "vehicles"]
+    },
+    {
+      "id": "boston_green_line",
+      "title": "Boston Green Line (faces + transit)",
+      "description": "24s inbound train — platform passengers with visible faces (Wikimedia Commons).",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Green_Line_inbound_Museum_of_Fine_Arts_station_2023-06-26_16-34-58.webm/Green_Line_inbound_Museum_of_Fine_Arts_station_2023-06-26_16-34-58.webm.480p.vp9.webm",
+      "duration_seconds": 24,
+      "tags": ["faces", "transit"]
+    },
+    {
+      "id": "nyc_times_square_night_walk",
+      "title": "Times Square NYC at Night",
+      "description": "~9 min 4K street walk — dense crowds and faces in Times Square (YouTube; yt-dlp for admin jobs).",
+      "url": "https://www.youtube.com/watch?v=qGh2uK77nbU",
+      "duration_seconds": 561,
+      "tags": ["faces", "street", "nyc", "crowd", "youtube"]
+    }
+  ]
+}

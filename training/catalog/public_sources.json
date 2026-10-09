@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "description": "Public-domain / Commons clips for Open Redaction contributor batches. Respect each host ToS; YouTube requires yt-dlp locally.",
+  "samples": [
+    {
+      "id": "oslo_tram_street",
+      "title": "Oslo tram (street)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/60/Tram_in_Oslo_20250107_142906.webm/Tram_in_Oslo_20250107_142906.webm.480p.vp9.webm",
+      "license": "Wikimedia Commons — check file page for license",
+      "tags": ["faces", "street"],
+      "batch": { "prefix": "oslo", "start_sec": 0, "every_sec": 0.5, "max_frames": 60 }
+    },
+    {
+      "id": "vienna_speech_crowd",
+      "title": "Vienna speech crowd",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6f/Image-Demonstration_data_retention_at_BMVIT_speech_Hufsky_3_2007-06-07.ogv/Image-Demonstration_data_retention_at_BMVIT_speech_Hufsky_3_2007-06-07.ogv.480p.vp9.webm",
+      "license": "Wikimedia Commons",
+      "tags": ["faces", "crowd"],
+      "batch": { "prefix": "vienna", "start_sec": 0, "every_sec": 0.5, "max_frames": 60 }
+    },
+    {
+      "id": "prague_bus_roundabout",
+      "title": "Prague bus (plates)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/8/87/Mercedes-Benz_CapaCity_na_lince_119%2C_kruhov%C3%BD_objezd.webm/Mercedes-Benz_CapaCity_na_lince_119%2C_kruhov%C3%BD_objezd.webm.480p.vp9.webm",
+      "license": "Wikimedia Commons",
+      "tags": ["license_plates", "vehicles"],
+      "batch": { "prefix": "prague", "start_sec": 0, "every_sec": 0.4, "max_frames": 45 }
+    },
+    {
+      "id": "go_train_crossing",
+      "title": "GO Train crossing (plates)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/29/GO_Train_at_level_crossing.webm/GO_Train_at_level_crossing.webm.480p.vp9.webm",
+      "license": "Wikimedia Commons",
+      "tags": ["license_plates", "vehicles"],
+      "batch": { "prefix": "go_train", "start_sec": 0, "every_sec": 0.5, "max_frames": 40 }
+    },
+    {
+      "id": "boston_green_line",
+      "title": "Boston Green Line (faces + transit)",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/28/Green_Line_inbound_Museum_of_Fine_Arts_station_2023-06-26_16-34-58.webm/Green_Line_inbound_Museum_of_Fine_Arts_station_2023-06-26_16-34-58.webm.480p.vp9.webm",
+      "license": "Wikimedia Commons",
+      "tags": ["faces", "transit"],
+      "batch": { "prefix": "boston", "start_sec": 0, "every_sec": 0.5, "max_frames": 60 }
+    },
+    {
+      "id": "nyc_times_square_night_walk",
+      "title": "Times Square NYC at Night",
+      "url": "https://www.youtube.com/watch?v=qGh2uK77nbU",
+      "license": "YouTube — use only with yt-dlp; do not redistribute raw video in git",
+      "tags": ["faces", "crowd", "night", "youtube"],
+      "batch": { "prefix": "nyc", "start_sec": 120, "every_sec": 1.0, "max_frames": 120 },
+      "requires_ytdlp": true
+    }
+  ]
+}

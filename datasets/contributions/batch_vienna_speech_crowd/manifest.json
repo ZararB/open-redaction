@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "batch_id": "batch_vienna_speech_crowd",
+  "source": {
+    "id": "vienna_speech_crowd",
+    "title": "Vienna speech crowd",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/6f/Image-Demonstration_data_retention_at_BMVIT_speech_Hufsky_3_2007-06-07.ogv/Image-Demonstration_data_retention_at_BMVIT_speech_Hufsky_3_2007-06-07.ogv.480p.vp9.webm",
+    "license": "Wikimedia Commons",
+    "tags": [
+      "faces",
+      "crowd"
+    ]
+  },
+  "frames": {
+    "count": 60
+  },
+  "labeling": {
+    "status": "open",
+    "min_reviewers": 1
+  },
+  "created_at": "2026-10-03T02:47:47.135847+00:00"
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open Redaction — Labeling Studio</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Open Redaction Studio</h1>
+    <p id="meta">Loading batch…</p>
+  </header>
+  <main>
+    <div class="toolbar">
+      <button type="button" id="btn-prev" title="Previous frame (P)">← Prev</button>
+      <span id="frame-indicator">0 / 0</span>
+      <button type="button" id="btn-next" title="Next frame (N)">Next →</button>
+      <label class="class-toggle"><input type="radio" name="cls" value="face" checked /> Face <kbd>1</kbd></label>
+      <label class="class-toggle"><input type="radio" name="cls" value="license_plate" /> Plate <kbd>2</kbd></label>
+      <button type="button" id="btn-delete" title="Delete selected box (Del)">Delete box</button>
+      <button type="button" id="btn-clear" title="Clear all boxes on frame">Clear frame</button>
+      <button type="button" id="btn-save" class="primary" title="Save (S)">Save frame</button>
+    </div>
+    <div class="stage" id="stage">
+      <img id="frame-img" alt="frame" crossorigin="anonymous" />
+      <canvas id="overlay"></canvas>
+    </div>
+    <aside class="help">
+      <p>Draw a rectangle on the image. Boxes are saved to <code>labels.jsonl</code> for training.</p>
+      <ul>
+        <li><kbd>N</kbd> / <kbd>P</kbd> — next / previous frame</li>
+        <li><kbd>1</kbd> / <kbd>2</kbd> — face vs license plate</li>
+        <li><kbd>S</kbd> — save current frame</li>
+        <li><kbd>Del</kbd> — remove selected box</li>
+      </ul>
+    </aside>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
