@@ -81,8 +81,8 @@ pip install -e ".[dev]"
 
 | Scene preview (GitHub) | `open-redact` output |
 |:--:|:--:|
-| ![README preview with three faces manually masked](samples/readme-demo/frame_input.jpg) | ![Automated redaction on the original frame](samples/readme-demo/frame_output.jpg) |
-| Three faces are manually masked in the preview. | Opaque boxes on **all** faces the engine detects |
+| ![README preview — two prominent faces pre-redacted for publication](samples/readme-demo/frame_input.jpg) | ![Automated redaction on the original frame](samples/readme-demo/frame_output.jpg) |
+| Two identifiable faces **manually blacked out** so we do not publish them; smaller/distant faces may still appear | Opaque boxes on **all** faces the engine detects |
 
 Your local runs always read **your unmodified files** — we never upload source video to GitHub. The left image is sanitized for this repo only.
 
