@@ -1,5 +1,7 @@
 # Open Redaction
 
+**Redact faces and license plates locally. Review the results before sharing.**
+
 **Open Redaction** is a standalone, offline-capable **face and license-plate video redaction** engine for privacy-safe AI workflows. It ships the same local ONNX/OpenCV stack used in production privacy pipelines, without any proprietary cloud routing, API keys, or company infrastructure.
 
 Use it to redact sensitive pixels **on your machine** before training, evaluation, or public release of video data.
